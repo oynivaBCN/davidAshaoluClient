@@ -1,5 +1,5 @@
 # davidAshaoluClient
-client
+client side for davidAshaolu website
 ## Available Scripts
 
 In the project directory, you can run:
