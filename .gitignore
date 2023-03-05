@@ -4,7 +4,7 @@
 /app/node_modules
 
 # config
-/app/src/config/UserPool.js
+/app/src/config
 
 # testing
 
