@@ -22,13 +22,19 @@ const RegistrationForm = () => {
 
 	const handleRegister = async (e) => {
 		e.preventDefault();
-		if (state.password === state.confirmPassword) {
-			const data = await SessionService.signup(state.username, state.email, state.password);
-			//TODO handle register fail
-			console.log('REGISTER', data);
-			navigate(RoutesLinks.LOGIN, { state: { otp: true } });
-		} else {
-			window.alert('Passwords do not match');
+		try {
+			if (state.password === state.confirmPassword) {
+				const data = await SessionService.signup(state.username, state.email, state.password);
+				console.log('REGISTER', data);
+				navigate(RoutesLinks.LOGIN, { state: { otp: true } });
+			} else {
+				window.alert('Passwords do not match');
+			}
+		} catch (error) {
+			console.error(error);
+			if (error.response?.data) {
+				window.alert(error.response.data.name);
+			}
 		}
 	};
 
