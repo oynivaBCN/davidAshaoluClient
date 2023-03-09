@@ -1,6 +1,11 @@
 import React, { useState } from 'react';
+import SessionService from '../../services/session-service';
+import { useNavigate } from 'react-router-dom';
+import { RoutesLinks } from '../../routes/routes-links';
 
 const RegistrationForm = () => {
+	const navigate = useNavigate();
+
 	const [state, setState] = useState({
 		email: '',
 		username: '',
@@ -15,10 +20,13 @@ const RegistrationForm = () => {
 		}));
 	};
 
-	const handleRegister = (e) => {
+	const handleRegister = async (e) => {
 		e.preventDefault();
 		if (state.password === state.confirmPassword) {
-			console.log(state);
+			const data = await SessionService.signup(state.username, state.email, state.password);
+			//TODO handle register fail
+			console.log('REGISTER', data);
+			navigate(RoutesLinks.LOGIN, { state: { otp: true } });
 		} else {
 			window.alert('Passwords do not match');
 		}
