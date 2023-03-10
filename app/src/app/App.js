@@ -14,7 +14,7 @@ function App() {
 	const refreshToken = useCallback(async (tokens) => dispatch(UserOperations.refreshToken(tokens)), [dispatch]);
 
 	const handleRouteChange = useCallback(async () => {
-		if (tokens) {
+		if (tokens.access && tokens.refresh) {
 			await refreshToken(tokens);
 		}
 	}, [tokens, refreshToken]);
