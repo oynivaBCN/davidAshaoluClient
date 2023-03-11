@@ -6,7 +6,7 @@ const Dashboard = () => {
 	console.log('dash');
 	return (
 		<>
-			<div>{`Dashboard: Hello ${user?.username}`}</div>
+			<div>{`Dashboard: Hello ${user?.username}. Your role is: ${user?.role}`}</div>
 		</>
 	);
 };
