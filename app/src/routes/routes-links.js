@@ -1,7 +1,8 @@
 export const RoutesLinks = {
-	ABOUT: '/about/',
+	ABOUT: '/about',
 	DASHBOARD: '/dashboard',
 	HOME: '/',
-	LOGIN: '/login/',
-	REGISTER: '/register/',
+	LOGIN: '/login',
+	REGISTER: '/register',
+	TEMP: '/temp',
 };

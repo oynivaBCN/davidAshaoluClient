@@ -1,8 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-const Home = () => {
-	console.log("dash")
-	return <><div>Dashboard if logged in</div></>;
+const Dashboard = () => {
+	const user = useSelector((state) => state.user);
+	console.log('dash');
+	return (
+		<>
+			<div>{`Dashboard: Hello ${user?.username}. Your role is: ${user?.role}`}</div>
+		</>
+	);
 };
 
-export default Home;
+export default Dashboard;
